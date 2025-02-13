@@ -75,7 +75,7 @@ export default function About({ onImageClick }: AboutProps) {
             transition={{ duration: 0.5 }}
           >
             <p className="text-lg leading-relaxed text-gray-300 mb-4">
-              Hello! I'm Prathmesh Sayal, a passionate learner and tech enthusiast. My journey in the world of computer
+              Hello! I&apos;m Prathmesh Sayal, a passionate learner and tech enthusiast. My journey in the world of computer
               science has been driven by an insatiable curiosity and a desire to create impactful solutions.
             </p>
             <p className="text-lg leading-relaxed text-gray-300 mb-4">
@@ -83,8 +83,8 @@ export default function About({ onImageClick }: AboutProps) {
               technology keeps me on my toes, always learning and adapting to new challenges.
             </p>
             <p className="text-lg leading-relaxed text-gray-300">
-              When I'm not coding, you'll find me exploring the latest tech trends, contributing to open-source
-              projects, or brainstorming innovative ideas. Let's connect and create something amazing together!
+              When I&apos;m not coding, you&apos;ll find me exploring the latest tech trends, contributing to open-source
+              projects, or brainstorming innovative ideas. Let&apos;s connect and create something amazing together!
             </p>
           </motion.div>
         </div>

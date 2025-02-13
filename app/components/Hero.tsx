@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { GithubIcon, Linkedin, Mail } from "lucide-react"
 import GlowingButton from "./GlowingButton"
+import { useEffect, useState } from 'react';
 
 export default function Hero() {
   return (
@@ -72,7 +73,22 @@ function SocialIcon({ href, icon, label }: { href: string; icon: React.ReactNode
   )
 }
 
-function ParticleField() {
+const ParticleField = () => {
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="absolute inset-0 z-0">
       <motion.div
@@ -81,28 +97,28 @@ function ParticleField() {
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
       >
-        {[...Array(50)].map((_, i) => (
+        {Array.from({ length: 100 }).map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-blue-500 rounded-full"
             initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * dimensions.width,
+              y: Math.random() * dimensions.height,
               scale: Math.random() * 0.5 + 0.5,
             }}
             animate={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * dimensions.width,
+              y: Math.random() * dimensions.height,
               scale: Math.random() * 0.5 + 0.5,
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
+              duration: Math.random() * 2 + 1,
+              repeat: Infinity,
+              repeatType: 'reverse',
             }}
           />
         ))}
       </motion.div>
     </div>
-  )
-}
+  );
+};

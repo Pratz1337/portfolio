@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Mail, MapPin, Phone, Send, Loader2 } from "lucide-react"
+import { Mail, MapPin,  Send, Loader2 } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -29,7 +29,7 @@ export default function Contact() {
     resolver: zodResolver(formSchema),
   })
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async () => {
     setIsSubmitting(true)
     try {
       // Here you would typically send the form data to your backend
