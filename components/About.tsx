@@ -108,5 +108,3 @@ export default function About({ onImageClick }: AboutProps) {
     </section>
   )
 }
-
-

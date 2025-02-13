@@ -1,4 +1,3 @@
-"use client"
 
 import { motion } from "framer-motion"
 import Image from "next/image"
@@ -17,6 +16,7 @@ const skills = [
 
 export default function Skills() {
   return (
+    
     <section id="skills" className="py-20 relative overflow-hidden bg-gradient-to-b from-black to-purple-900">
       <div className="container mx-auto px-6 relative z-10">
         <motion.h2
@@ -70,6 +70,7 @@ export default function Skills() {
       </div>
       <SkillsBackground />
     </section>
+    
   )
 }
 
@@ -87,13 +88,13 @@ function SkillsBackground() {
             key={i}
             className="absolute w-2 h-2 bg-blue-500 rounded-full"
             initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: typeof window !== "undefined" ? Math.random() * window.innerWidth : 0,
+              y: typeof window !== "undefined" ? Math.random() * window.innerHeight : 0,
               scale: Math.random() * 0.5 + 0.5,
             }}
             animate={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: typeof window !== "undefined" ? Math.random() * window.innerWidth : 0,
+              y: typeof window !== "undefined" ? Math.random() * window.innerHeight : 0,
               scale: Math.random() * 0.5 + 0.5,
             }}
             transition={{

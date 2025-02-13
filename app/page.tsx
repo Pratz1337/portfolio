@@ -33,12 +33,16 @@ export default function Home() {
   }, [lastClickTime])
 
   useEffect(() => {
-    const handleUnlock = () => setIsSpecialUnlocked(true)
-    window.addEventListener("unlockSpecialSection", handleUnlock)
-    return () => window.removeEventListener("unlockSpecialSection", handleUnlock)
+    if (typeof window !== "undefined") {
+      const handleUnlock = () => setIsSpecialUnlocked(true)
+      window.addEventListener("unlockSpecialSection", handleUnlock)
+      return () => window.removeEventListener("unlockSpecialSection", handleUnlock)
+    }
   }, [])
 
   return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
     <main ref={containerRef} className="relative bg-black text-white min-h-screen overflow-hidden">
       <ParallaxBackground />
       <FloatingNav showSpecial={isSpecialUnlocked} />
@@ -49,5 +53,7 @@ export default function Home() {
       {isSpecialUnlocked && <SpecialSection />}
       <Contact />
     </main>
+    </body>
+    </html>
   )
 }

@@ -73,20 +73,27 @@ function SocialIcon({ href, icon, label }: { href: string; icon: React.ReactNode
   )
 }
 
-const ParticleField = () => {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+function ParticleField() {
+  const [mounted, setMounted] = useState(false);
+  const [positions, setPositions] = useState<Array<{x: number, y: number}>>([]);
 
   useEffect(() => {
-    const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    setMounted(true);
+    if (typeof window !== "undefined") {
+      const updateParticles = () => {
+        setPositions(
+          Array.from({ length: 50 }, () => ({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+          }))
+        );
+      };
+      
+      updateParticles();
+      window.addEventListener("resize", updateParticles);
+      return () => window.removeEventListener("resize", updateParticles);
+    }
   }, []);
 
   return (
@@ -97,28 +104,29 @@ const ParticleField = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
       >
-        {Array.from({ length: 100 }).map((_, i) => (
+        {positions.map((pos, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-blue-500 rounded-full"
+            className="absolute w-2 h-2 bg-blue-500/50 rounded-full"
             initial={{
-              x: Math.random() * dimensions.width,
-              y: Math.random() * dimensions.height,
-              scale: Math.random() * 0.5 + 0.5,
+              x: mounted ? pos.x : 0,
+              y: mounted ? pos.y : 0,
+              scale: 0.8
             }}
             animate={{
-              x: Math.random() * dimensions.width,
-              y: Math.random() * dimensions.height,
-              scale: Math.random() * 0.5 + 0.5,
+              x: pos.x + (Math.random() - 0.5) * 100,
+              y: pos.y + (Math.random() - 0.5) * 100,
+              scale: [0.8, 1.2, 0.8]
             }}
             transition={{
-              duration: Math.random() * 2 + 1,
+              duration: 15 + (i % 5) * 3,
               repeat: Infinity,
-              repeatType: 'reverse',
+              repeatType: "mirror",
+              ease: "easeInOut"
             }}
           />
         ))}
       </motion.div>
     </div>
   );
-};
+}
