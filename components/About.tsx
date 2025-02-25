@@ -68,8 +68,15 @@ export default function About({ onImageClick }: AboutProps) {
               computer science has been driven by an insatiable curiosity and a desire to create impactful solutions.
             </p>
             <p className="text-lg leading-relaxed text-gray-300 mb-4">
-              I specialize in Python, Web Development, and AI-powered applications. The ever-evolving landscape of
-              technology keeps me on my toes, always learning and adapting to new challenges.
+              I specialize in Python, Web Development, and AI-powered applications. My achievements include being a
+              runner-up in the Smart India Hackathon 2024, winning AIT Hack 24 with Guard.AI, and securing first place
+              in BIT Hack'24 with Symptom Sage. The ever-evolving landscape of technology keeps me on my toes, always
+              learning and adapting to new challenges.
+            </p>
+            <p className="text-lg leading-relaxed text-gray-300 mb-4">
+              Currently, I'm a 2nd Year CSE Undergraduate at RIT Bengaluru, maintaining a CGPA of 9.9/10.0. I'm actively
+              seeking freelance opportunities, internships, and collaborative projects to further hone my skills and
+              contribute to innovative solutions.
             </p>
             <p className="text-lg leading-relaxed text-gray-300">
               When I&apos;m not coding, you&apos;ll find me exploring the latest tech trends, contributing to
@@ -82,7 +89,7 @@ export default function About({ onImageClick }: AboutProps) {
           {skills.map((skill, index) => (
             <motion.div
               key={index}
-              className="bg-white/5 p-6 rounded-lg shadow-lg rounded-xl backdrop-blur-sm"
+              className="bg-white/5 p-6 rounded-lg shadow-lg  backdrop-blur-sm"
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}

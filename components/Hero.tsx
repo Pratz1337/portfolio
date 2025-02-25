@@ -1,9 +1,11 @@
 "use client"
 
+import type React from "react"
+
 import { motion } from "framer-motion"
 import { GithubIcon, Linkedin, Mail } from "lucide-react"
 import GlowingButton from "./GlowingButton"
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react"
 
 export default function Hero() {
   return (
@@ -11,7 +13,7 @@ export default function Hero() {
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center"
         >
@@ -22,7 +24,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             Prathmesh Sayal
-            </motion.h1>
+          </motion.h1>
           <motion.h2
             className="text-2xl md:text-4xl font-semibold mb-6 text-gray-300"
             initial={{ y: 20, opacity: 0 }}
@@ -37,7 +39,8 @@ export default function Hero() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            Crafting digital experiences with Python, React, and AI. Always exploring, always learning.
+            Crafting digital experiences with Python, React, and AI. Open for freelancing, internships, and exciting
+            projects. Always exploring, always learning.
           </motion.p>
           <motion.div
             className="flex justify-center space-x-4 mb-8"
@@ -49,9 +52,17 @@ export default function Hero() {
             <SocialIcon href="https://www.linkedin.com/in/prathmesh-sayal/" icon={<Linkedin />} label="LinkedIn" />
             <SocialIcon href="mailto:prathmeshsayal8@gmail.com" icon={<Mail />} label="Email" />
           </motion.div>
-          <GlowingButton onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}>
+          <GlowingButton  onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}>
             Explore My World
           </GlowingButton>
+          <motion.div className="inline-block mt-4 ml-[20px]" initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 1 }}>
+            <GlowingButton onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+              Work With Me
+            </GlowingButton>
+            </motion.div>
+
+          
+          
         </motion.div>
       </div>
       <ParticleField />
@@ -73,28 +84,27 @@ function SocialIcon({ href, icon, label }: { href: string; icon: React.ReactNode
   )
 }
 
-
 function ParticleField() {
-  const [mounted, setMounted] = useState(false);
-  const [positions, setPositions] = useState<Array<{x: number, y: number}>>([]);
+  const [mounted, setMounted] = useState(false)
+  const [positions, setPositions] = useState<Array<{ x: number; y: number }>>([])
 
   useEffect(() => {
-    setMounted(true);
+    setMounted(true)
     if (typeof window !== "undefined") {
       const updateParticles = () => {
         setPositions(
           Array.from({ length: 50 }, () => ({
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,
-          }))
-        );
-      };
-      
-      updateParticles();
-      window.addEventListener("resize", updateParticles);
-      return () => window.removeEventListener("resize", updateParticles);
+          })),
+        )
+      }
+
+      updateParticles()
+      window.addEventListener("resize", updateParticles)
+      return () => window.removeEventListener("resize", updateParticles)
     }
-  }, []);
+  }, [])
 
   return (
     <div className="absolute inset-0 z-0">
@@ -111,22 +121,23 @@ function ParticleField() {
             initial={{
               x: mounted ? pos.x : 0,
               y: mounted ? pos.y : 0,
-              scale: 0.8
+              scale: 0.8,
             }}
             animate={{
               x: pos.x + (Math.random() - 0.5) * 100,
               y: pos.y + (Math.random() - 0.5) * 100,
-              scale: [0.8, 1.2, 0.8]
+              scale: [0.8, 1.2, 0.8],
             }}
             transition={{
               duration: 15 + (i % 5) * 3,
-              repeat: Infinity,
+              repeat: Number.POSITIVE_INFINITY,
               repeatType: "mirror",
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
         ))}
       </motion.div>
     </div>
-  );
+  )
 }
+
