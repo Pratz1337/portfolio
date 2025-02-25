@@ -70,11 +70,11 @@ export default function About({ onImageClick }: AboutProps) {
             <p className="text-lg leading-relaxed text-gray-300 mb-4">
               I specialize in Python, Web Development, and AI-powered applications. My achievements include being a
               runner-up in the Smart India Hackathon 2024, winning AIT Hack 24 with Guard.AI, and securing first place
-              in BIT Hack'24 with Symptom Sage. The ever-evolving landscape of technology keeps me on my toes, always
+              in BIT Hack&apos;24 with Symptom Sage. The ever-evolving landscape of technology keeps me on my toes, always
               learning and adapting to new challenges.
             </p>
             <p className="text-lg leading-relaxed text-gray-300 mb-4">
-              Currently, I'm a 2nd Year CSE Undergraduate at RIT Bengaluru, maintaining a CGPA of 9.9/10.0. I'm actively
+              Currently, I&apos;m a 2nd Year CSE Undergraduate at RIT Bengaluru, maintaining a CGPA of 9.9/10.0. I&apos;m actively
               seeking freelance opportunities, internships, and collaborative projects to further hone my skills and
               contribute to innovative solutions.
             </p>
