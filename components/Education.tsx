@@ -1,72 +1,92 @@
 "use client"
 
-import { GraduationCap, Calendar, Award } from "lucide-react"
-import Image from "next/image"
-import AnimatedSectionHeader from "./AnimatedSectionHeader"
+import { Card, CardContent } from "@/components/ui/card"
+import { GraduationCap, BookOpen } from "lucide-react"
 import { motion } from "framer-motion"
 
 export default function Education() {
-  const education = [
-    {
-      degree: "Bachelor's Degree in Computer Science",
-      institution: "GC University Faisalabad",
-      period: "2018 – 2022",
-      achievements: [
-        "Graduated with honors",
-        "Specialized in Web Technologies and Artificial Intelligence",
-        "Completed capstone project on 'Intelligent Web Application for Healthcare'",
-      ],
-    },
+  const courses = [
+    "Computer Organisation Architecture",
+    "Data Communication & Networking",
+    "Computational Theory",
+    "Compiler Design",
+    "Database Management System",
   ]
 
   return (
-    <section
-      id="education"
-      className="py-20 bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-gray-900 dark:to-purple-900 transition-colors duration-300 overflow-hidden relative"
-    >
-      <div className="container mx-auto px-6 relative z-10">
-        <AnimatedSectionHeader title="Education" />
-        <div className="max-w-3xl mx-auto">
-          {education.map((edu, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-32 h-32 bg-purple-200 dark:bg-purple-700 rounded-br-full z-0 opacity-50"></div>
-              <div className="relative z-10">
-                <h3 className="text-2xl font-semibold mb-2 dark:text-white flex items-center">
-                  <GraduationCap className="w-6 h-6 mr-2" />
-                  {edu.degree}
-                </h3>
-                <p className="text-xl text-gray-600 dark:text-gray-300 mb-4">{edu.institution}</p>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 flex items-center">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  {edu.period}
-                </p>
-                <h4 className="text-lg font-medium mb-2 dark:text-gray-200 flex items-center">
-                  <Award className="w-5 h-5 mr-2" />
-                  Key Achievements:
-                </h4>
-                <ul className="list-disc list-inside space-y-2">
-                  {edu.achievements.map((achievement, idx) => (
-                    <li key={idx} className="text-gray-700 dark:text-gray-300">
-                      {achievement}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-      <div className="absolute top-0 left-0 w-64 h-64 -mt-32 -ml-32 opacity-20">
-        <Image src="/placeholder.svg?height=256&width=256" alt="Decorative background" width={256} height={256} />
+    <section id="education" className="py-20">
+      <div className="container px-4 md:px-6">
+        <motion.div
+          className="space-y-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="space-y-4 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Education</h2>
+            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              My academic background and qualifications
+            </p>
+          </div>
+
+          <motion.div
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <Card className="overflow-hidden">
+              <CardContent className="p-0">
+                <div className="bg-primary/10 p-6 flex items-center gap-4">
+                  <motion.div
+                    className="bg-primary/20 p-3 rounded-full"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  >
+                    <GraduationCap className="h-8 w-8 text-primary" />
+                  </motion.div>
+                  <div>
+                    <h3 className="text-xl font-bold">
+                      B.E. Computer Science Engineering with specialization in Cybersecurity
+                    </h3>
+                    <p className="text-muted-foreground">Ramaiah Institute of Technology (August 2023 - August 2027)</p>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="mb-4">
+                    <p className="font-semibold">
+                      CGPA: <span className="text-primary">9.72/10.00</span> (Till 4th Semester)
+                    </p>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <BookOpen className="h-5 w-5 text-primary" />
+                      <h4 className="font-semibold">Key Coursework:</h4>
+                    </div>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      {courses.map((course, index) => (
+                        <motion.li
+                          key={index}
+                          className="flex items-center gap-2"
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: 0.1 * index }}
+                        >
+                          <span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                          <span className="text-muted-foreground">{course}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
 }
-

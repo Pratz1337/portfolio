@@ -1,143 +1,162 @@
 "use client"
 
-import type React from "react"
-
+import { Button } from "@/components/ui/button"
+import { ArrowUpCircle, Download, Github, Linkedin, Mail } from "lucide-react"
+import Link from "next/link"
+import { TypeAnimation } from "react-type-animation"
 import { motion } from "framer-motion"
-import { GithubIcon, Linkedin, Mail } from "lucide-react"
-import GlowingButton from "./GlowingButton"
-import { useEffect, useState } from "react"
+import Image from "next/image"
 
 export default function Hero() {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="home" className="py-20 md:py-32 flex flex-col items-center justify-center min-h-[90vh]">
+      <div className="container px-4 md:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          className="flex flex-col md:flex-row items-center gap-12 space-y-4 md:space-y-0 text-center md:text-left"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center"
+          transition={{ duration: 0.8 }}
         >
-          <motion.h1
-            className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text font-orbitron "
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            Prathmesh Sayal
-          </motion.h1>
-          <motion.h2
-            className="text-2xl md:text-4xl font-semibold mb-6 text-gray-300"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            Lifelong Learner | CS Enthusiast
-          </motion.h2>
-          <motion.p
-            className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
-            Crafting digital experiences with Python, React, and AI. Open for freelancing, internships, and exciting
-            projects. Always exploring, always learning.
-          </motion.p>
           <motion.div
-            className="flex justify-center space-x-4 mb-8"
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
+            className="md:w-1/2 flex justify-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <SocialIcon href="https://github.com/pratz1337" icon={<GithubIcon />} label="GitHub" />
-            <SocialIcon href="https://www.linkedin.com/in/prathmesh-sayal/" icon={<Linkedin />} label="LinkedIn" />
-            <SocialIcon href="mailto:prathmeshsayal8@gmail.com" icon={<Mail />} label="Email" />
+            <div className="relative w-64 h-64">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/50 rounded-full animate-pulse" />
+              <div className="relative z-10 w-full h-full rounded-full overflow-hidden border-4 border-background">
+                <Image
+                  src="/images/pratz.jpg"
+                  alt="Prathmesh Sayal"
+                  width={500}
+                  height={500}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
           </motion.div>
-          <GlowingButton  onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}>
-            Explore My World
-          </GlowingButton>
-          <motion.div className="inline-block mt-4 ml-[20px]" initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 1 }}>
-            <GlowingButton onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
-              Work With Me
-            </GlowingButton>
+
+          <motion.div
+            className="md:w-1/2 space-y-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter">
+              Hi, I&apos;m <span className="gradient-text">Prathmesh Sayal</span>
+            </h1>
+            <p className="text-xl text-muted-foreground md:text-2xl">
+              <span className="js-only">
+                <TypeAnimation
+                  sequence={[
+                    "Computer Science Student",
+                    1000,
+                    "Cybersecurity Enthusiast",
+                    1000,
+                    "Full Stack Developer",
+                    1000,
+                    "AI/ML Researcher",
+                    1000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Number.POSITIVE_INFINITY}
+                />
+              </span>
+              <noscript>
+                <span>
+                  Computer Science Student | Cybersecurity Enthusiast | Full Stack Developer | AI/ML Researcher
+                </span>
+              </noscript>
+            </p>
+
+            <p className="text-lg text-muted-foreground">
+              Building innovative solutions at the intersection of AI, cybersecurity, and web development
+            </p>
+
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 mt-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.8 }}
+            >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full bg-gradient-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary"
+                >
+                  <Link href="#contact">Get In Touch</Link>
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button asChild variant="outline" size="lg" className="rounded-full">
+                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                    <Download className="mr-2 h-4 w-4" /> Download Resume
+                  </a>
+                </Button>
+              </motion.div>
             </motion.div>
 
-          
-          
+            <motion.div
+              className="flex gap-4 mt-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+            >
+              <motion.div whileHover={{ scale: 1.2, rotate: 5 }} whileTap={{ scale: 0.9 }}>
+                <Button variant="ghost" size="icon" asChild className="rounded-full">
+                  <Link href="https://github.com/pratz1337" target="_blank" rel="noopener noreferrer">
+                    <Github className="h-5 w-5" />
+                    <span className="sr-only">GitHub</span>
+                  </Link>
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.2, rotate: 5 }} whileTap={{ scale: 0.9 }}>
+                <Button variant="ghost" size="icon" asChild className="rounded-full">
+                  <Link href="https://linkedin.com/in/prathmesh-sayal" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="h-5 w-5" />
+                    <span className="sr-only">LinkedIn</span>
+                  </Link>
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.2, rotate: 5 }} whileTap={{ scale: 0.9 }}>
+                <Button variant="ghost" size="icon" asChild className="rounded-full">
+                  <Link href="mailto:sayalprathmesh8@gmail.com">
+                    <Mail className="h-5 w-5" />
+                    <span className="sr-only">Email</span>
+                  </Link>
+                </Button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          {/* Random purple blurred gradients */}
+          <div className="absolute top-10 left-10 w-72 h-72 bg-purple-500 opacity-30 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-fuchsia-400 opacity-20 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/3 w-60 h-60 bg-violet-400 opacity-25 rounded-full blur-2xl" />
+        </div>
+
+        <motion.div
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:block js-only"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 0.8 }}
+        >
+          <Link
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            }}
+          >
+            <ArrowUpCircle className="h-10 w-10 text-primary animate-bounce" />
+          </Link>
         </motion.div>
       </div>
-      <ParticleField />
     </section>
   )
 }
-
-function SocialIcon({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-300 transform hover:scale-110"
-      aria-label={label}
-    >
-      {icon}
-    </a>
-  )
-}
-
-function ParticleField() {
-  const [mounted, setMounted] = useState(false)
-  const [positions, setPositions] = useState<Array<{ x: number; y: number }>>([])
-
-  useEffect(() => {
-    setMounted(true)
-    if (typeof window !== "undefined") {
-      const updateParticles = () => {
-        setPositions(
-          Array.from({ length: 50 }, () => ({
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-          })),
-        )
-      }
-
-      updateParticles()
-      window.addEventListener("resize", updateParticles)
-      return () => window.removeEventListener("resize", updateParticles)
-    }
-  }, [])
-
-  return (
-    <div className="absolute inset-0 z-0">
-      <motion.div
-        className="absolute inset-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
-      >
-        {positions.map((pos, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-blue-500/50 rounded-full"
-            initial={{
-              x: mounted ? pos.x : 0,
-              y: mounted ? pos.y : 0,
-              scale: 0.8,
-            }}
-            animate={{
-              x: pos.x + (Math.random() - 0.5) * 100,
-              y: pos.y + (Math.random() - 0.5) * 100,
-              scale: [0.8, 1.2, 0.8],
-            }}
-            transition={{
-              duration: 15 + (i % 5) * 3,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "mirror",
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </motion.div>
-    </div>
-  )
-}
-

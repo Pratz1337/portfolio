@@ -1,108 +1,99 @@
 "use client"
 
+import { Card, CardContent } from "@/components/ui/card"
+import { Code2, Shield, Server, Brain } from "lucide-react"
 import { motion } from "framer-motion"
-import { Code, Database, Server, Zap } from "lucide-react"
-import ImageHoverCredits from "./ImageHoverCredits"
 
-interface AboutProps {
-  onImageClick: () => void
-}
-
-export default function About({ onImageClick }: AboutProps) {
-  const skills = [
+export default function About() {
+  const features = [
     {
-      icon: <Code className="w-8 h-8 text-blue-400" />,
-      title: "Web Development",
-      description: "React, Next.js, Python",
+      icon: <Code2 className="h-10 w-10 text-primary" />,
+      title: "Full Stack Development",
+      description: "Building responsive web applications with React, Next.js, and Node.js",
     },
-    { icon: <Server className="w-8 h-8 text-green-400" />, title: "Backend", description: "Node.js, Flask" },
-    { icon: <Database className="w-8 h-8 text-purple-400" />, title: "AI & ML", description: "TensorFlow, NumPy" },
     {
-      icon: <Zap className="w-8 h-8 text-yellow-400" />,
-      title: "Performance",
-      description: "Optimization, Algorithms",
+      icon: <Shield className="h-10 w-10 text-primary" />,
+      title: "Cybersecurity",
+      description: "Specializing in secure coding practices and vulnerability assessment",
+    },
+    {
+      icon: <Server className="h-10 w-10 text-primary" />,
+      title: "Blockchain Solutions",
+      description: "Developing decentralized applications with Web3.js and Solidity",
+    },
+    {
+      icon: <Brain className="h-10 w-10 text-primary" />,
+      title: "AI & Machine Learning",
+      description: "Creating intelligent systems with TensorFlow, Keras, and LangChain",
     },
   ]
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  }
+
   return (
-    <section id="about" className="py-20 px-4 md:px-20 relative bg-gradient-to-b from-black to-purple-900">
-      <motion.div
-        className="container mx-auto"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <motion.h2
-          className="text-4xl font-bold mb-10 text-center text-white"
-          initial={{ y: -50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+    <section id="about" className="py-20 bg-muted/30 w-full">
+      <div className="container px-4 md:px-6">
+        <motion.div
+          className="space-y-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
         >
-          About Me
-        </motion.h2>
-        <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="space-y-4 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About Me</h2>
+            
+          </div>
+
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
+              Currently pursuing my B.E. in Computer Science Engineering with a specialization in Cybersecurity at
+              Ramaiah Institute of Technology. I'm passionate about exploring the intersection of artificial
+              intelligence, cybersecurity, and web development. My goal is to create innovative solutions that are not
+              only technologically advanced but also secure and user-friendly.
+            </p>
+          </div>
+
           <motion.div
-            className="md:w-1/2 mb-10 md:mb-0"
-            initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12"
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
           >
-            <div className="relative w-64 h-64 mx-auto" onClick={onImageClick}>
-              <ImageHoverCredits
-                src="/images/aboutjpg.jpg"
-                alt="Prathmesh Sayal"
-                credits="Credits-@K"
-                width={256}
-                height={256}
-              />
-            </div>
+            {features.map((feature, index) => (
+              <motion.div key={index} variants={item} className="animate-in">
+                <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary/50">
+                  <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
+                    <motion.div
+                      className="p-2 rounded-full bg-primary/10"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    >
+                      {feature.icon}
+                    </motion.div>
+                    <h3 className="text-xl font-bold">{feature.title}</h3>
+                    <p className="text-muted-foreground">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </motion.div>
-          <motion.div
-            className="md:w-1/2"
-            initial={{ x: 100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="text-lg leading-relaxed text-gray-300 mb-4">
-              Hello! I&apos;m Prathmesh Sayal, a passionate learner and tech enthusiast. My journey in the world of
-              computer science has been driven by an insatiable curiosity and a desire to create impactful solutions.
-            </p>
-            <p className="text-lg leading-relaxed text-gray-300 mb-4">
-              I specialize in Python, Web Development, and AI-powered applications. My achievements include being a
-              runner-up in the Smart India Hackathon 2024, winning AIT Hack 24 with Guard.AI, and securing first place
-              in BIT Hack&apos;24 with Symptom Sage. The ever-evolving landscape of technology keeps me on my toes, always
-              learning and adapting to new challenges.
-            </p>
-            <p className="text-lg leading-relaxed text-gray-300 mb-4">
-              Currently, I&apos;m a 2nd Year CSE Undergraduate at RIT Bengaluru, maintaining a CGPA of 9.9/10.0. I&apos;m actively
-              seeking freelance opportunities, internships, and collaborative projects to further hone my skills and
-              contribute to innovative solutions.
-            </p>
-            <p className="text-lg leading-relaxed text-gray-300">
-              When I&apos;m not coding, you&apos;ll find me exploring the latest tech trends, contributing to
-              open-source projects, or brainstorming innovative ideas. Let&apos;s connect and create something amazing
-              together!
-            </p>
-          </motion.div>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 rounded-xl gap-6 mt-12">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={index}
-              className="bg-white/5 p-6 rounded-lg shadow-lg  backdrop-blur-sm"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              {skill.icon}
-              <h3 className="text-xl font-semibold mt-4 mb-2 text-white">{skill.title}</h3>
-              <p className="text-gray-400">{skill.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   )
 }
-

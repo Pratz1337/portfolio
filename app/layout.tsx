@@ -1,16 +1,43 @@
-import "./globals.css"
-import { Inter } from "next/font/google"
 import type React from "react"
-import { ThemeProvider } from "../components/theme-provider"
-import { Toaster } from "sonner"
+import type { Metadata } from "next"
+import ClientLayout from "./client"
 
-// In your layout component
-<Toaster position="top-center" richColors />
-const inter = Inter({ subsets: ["latin"] })
-
-export const metadata = {
-  title: "Prathmesh Sayal - Student",
-  description: "Portfolio of Prathmesh Sayal, a Student with interests in Computer Science and Engineering.",
+export const metadata: Metadata = {
+  title: "Prathmesh Sayal | Computer Science Student & Developer",
+  description:
+    "Portfolio of Prathmesh Sayal, a Computer Science Engineering student specializing in Cybersecurity, with expertise in Python, JavaScript, and AI/ML technologies.",
+  keywords: [
+    "Prathmesh Sayal",
+    "Computer Science",
+    "Cybersecurity",
+    "Full Stack Developer",
+    "AI/ML",
+    "Python",
+    "JavaScript",
+    "React",
+  ],
+  authors: [{ name: "Prathmesh Sayal" }],
+  creator: "Prathmesh Sayal",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://prathmeshsayal.com",
+    title: "Prathmesh Sayal | Computer Science Student & Developer",
+    description:
+      "Portfolio of Prathmesh Sayal, a Computer Science Engineering student specializing in Cybersecurity, with expertise in Python, JavaScript, and AI/ML technologies.",
+    siteName: "Prathmesh Sayal Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prathmesh Sayal | Computer Science Student & Developer",
+    description:
+      "Portfolio of Prathmesh Sayal, a Computer Science Engineering student specializing in Cybersecurity, with expertise in Python, JavaScript, and AI/ML technologies.",
+    creator: "@prathmeshsayal",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
@@ -18,16 +45,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="fixed top-4 right-4 z-50">
-          </div>
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
-  )
+  return <ClientLayout>{children}</ClientLayout>
 }
-
