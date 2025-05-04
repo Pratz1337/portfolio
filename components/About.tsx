@@ -61,7 +61,7 @@ export default function About() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
               Currently pursuing my B.E. in Computer Science Engineering with a specialization in Cybersecurity at
-              Ramaiah Institute of Technology. I'm passionate about exploring the intersection of artificial
+              Ramaiah Institute of Technology. I&apos;m passionate about exploring the intersection of artificial
               intelligence, cybersecurity, and web development. My goal is to create innovative solutions that are not
               only technologically advanced but also secure and user-friendly.
             </p>
