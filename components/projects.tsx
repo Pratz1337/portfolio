@@ -15,7 +15,6 @@ export default function Projects() {
         "A one-stop solution for boosting Tourism and Preserving Indian Culture. Provides access to Smart Travel Planner, MCP-RAG Based Chatbot with Gamified AR Experience, Conversational Bot with secure storage using OQS and IPFS.",
       technologies: ["Python", "LangChain", "Groq API", "Next.js", "Google Maps API", "Twilio", "OQS", "IPFS"],
       link: "https://github.com/pratz1337",
-      award: "Runner-Up, Smart India Hackathon 2024 (EDUMITRA)",
       role: "Team Lead, Full Stack Developer",
     },
     {

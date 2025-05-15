@@ -6,8 +6,11 @@ import Link from "next/link"
 import { TypeAnimation } from "react-type-animation"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useState } from "react"
 
 export default function Hero() {
+  const [isHovering, setIsHovering] = useState(false);
+  
   return (
     <section id="home" className="py-20 md:py-32 flex flex-col items-center justify-center min-h-[90vh]">
       <div className="container px-4 md:px-6">
@@ -23,7 +26,11 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <div className="relative w-64 h-64">
+            <div 
+              className="relative w-64 h-64"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/50 rounded-full animate-pulse" />
               <div className="relative z-10 w-full h-full rounded-full overflow-hidden border-4 border-background">
                 <Image
@@ -33,6 +40,16 @@ export default function Hero() {
                   height={500}
                   className="object-cover w-full h-full"
                 />
+                {isHovering && (
+                  <motion.div 
+                    className="absolute inset-0 bg-black/60 flex items-end justify-center p-4 text-white text-sm"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <p>Credits @K</p>
+                  </motion.div>
+                )}
               </div>
             </div>
           </motion.div>
