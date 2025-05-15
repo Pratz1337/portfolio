@@ -22,7 +22,7 @@ export default function Achievements() {
       description: "Developed an AI-powered medical diagnostic tool that won first place.",
     },
     {
-      title: "Winner, BMSCE PhaseShift 2023",
+      title: "Winner, BMSCE PhaseShift 2023,2024",
       project: "CTF Event",
       description: "Demonstrated exceptional cybersecurity skills in a Capture The Flag competition.",
     },
