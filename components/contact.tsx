@@ -201,7 +201,7 @@ export default function Contact() {
                       </motion.div>
                       <motion.div whileHover={{ scale: 1.2, rotate: 5 }} whileTap={{ scale: 0.9 }}>
                         <Button variant="outline" size="icon" asChild className="rounded-full">
-                          <a href="mailto:sayalprathmesh8@gmail.com">
+                          <a href="mailto:prathmeshsayal8@gmail.com">
                             <Mail className="h-5 w-5" />
                             <span className="sr-only">Email</span>
                           </a>
