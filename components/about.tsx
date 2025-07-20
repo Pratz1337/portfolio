@@ -31,7 +31,7 @@ export default function About() {
   const container = {
     hidden: { opacity: 0 },
     show: {
-      opacity: 1,
+      opacity: 0.9,
       transition: {
         staggerChildren: 0.2,
       },
