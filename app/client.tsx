@@ -7,8 +7,6 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import AnimatedBackground from "@/components/animated-background"
-import BackgroundBoxes from "@/components/background-boxes"
 import NoScriptStyles from "@/components/noscript-styles"
 
 const fontSans = FontSans({
@@ -43,8 +41,7 @@ export default function ClientLayout({
                 For the best experience, please enable JavaScript. Some features may be limited without it.
               </div>
             </noscript>
-            <AnimatedBackground />
-            <BackgroundBoxes />
+            
             <Header />
             <main className="flex-1 relative z-10">{children}</main>
             <Footer />

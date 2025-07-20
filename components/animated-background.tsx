@@ -34,13 +34,7 @@ export default function AnimatedBackground() {
 
   return (
     <div className="animated-background js-only" aria-hidden="true">
-      <motion.div
-        className="blob blob-1"
-        ref={blob1Ref}
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.3 }}
-        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
-      ></motion.div>
+      
       <motion.div
         className="blob blob-2"
         ref={blob2Ref}
@@ -48,13 +42,7 @@ export default function AnimatedBackground() {
         animate={{ scale: 1, opacity: 0.3 }}
         transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse", delay: 0.5 }}
       ></motion.div>
-      <motion.div
-        className="blob blob-3"
-        ref={blob3Ref}
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.3 }}
-        transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse", delay: 1 }}
-      ></motion.div>
+      
     </div>
   )
 }
