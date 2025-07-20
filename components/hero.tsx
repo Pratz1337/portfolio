@@ -20,39 +20,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div
-            className="md:w-1/2 flex justify-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            <div 
-              className="relative w-64 h-64"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/50 rounded-full animate-pulse" />
-              <div className="relative z-10 w-full h-full rounded-full overflow-hidden border-4 border-background">
-                <Image
-                  src="/images/pratz.jpg"
-                  alt="Prathmesh Sayal"
-                  width={500}
-                  height={500}
-                  className="object-cover w-full h-full"
-                />
-                {isHovering && (
-                  <motion.div 
-                    className="absolute inset-0 bg-black/60 flex items-end justify-center p-4 text-white text-sm"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <p>Credits @K</p>
-                  </motion.div>
-                )}
-              </div>
-            </div>
-          </motion.div>
+          
 
           <motion.div
             className="md:w-1/2 space-y-4"
@@ -148,14 +116,52 @@ export default function Hero() {
               </motion.div>
             </motion.div>
           </motion.div>
+
+          {/* Right side - Image */}
+          <motion.div
+            className="flex-auto justify-end lg:justify-end"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          >
+            <div className="relative ml-auto w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              <div className="w-80 h-80 md:w-96 md:h-96 relative">
+                {/* Geometric frame */}
+                <div className="absolute inset-0 border-2 border-purple-400/30 rounded-2xl rotate-6 bg-gradient-to-br from-purple-500/10 to-violet-500/10" />
+                <div className="absolute inset-2 border border-slate-600 rounded-2xl -rotate-3 bg-slate-800/50" />
+
+                {/* Profile image */}
+                <div className="absolute inset-4 rounded-xl overflow-hidden bg-slate-900">
+                  <Image
+                    src="/images/pratz.jpg"
+                    alt="Prathmesh Sayal"
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
+                </div>
+
+                {/* Floating elements */}
+                <motion.div
+          className="absolute -top-4 -right-4 bg-purple-500 text-white p-3 rounded-xl font-bold text-sm shadow-lg"
+                  animate={{ y: [-5, 5, -5] }}
+                  transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                >
+                  CGPA: 9.72
         </motion.div>
 
-        <div className="absolute inset-0 -z-10 pointer-events-none">
-          {/* Random purple blurred gradients */}
-          <div className="absolute top-10 left-10 w-72 h-72 bg-purple-500 opacity-30 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-fuchsia-400 opacity-20 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/3 w-60 h-60 bg-violet-400 opacity-25 rounded-full blur-2xl" />
-        </div>
+                <motion.div
+          className="absolute -bottom-4 -left-4 bg-purple-900 border border-purple-600 text-purple-300 p-3 rounded-xl font-mono text-sm shadow-lg"
+                  animate={{ y: [5, -5, 5] }}
+                  transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1.5 }}
+                >
+                  {"<Developer />"}
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
 
         <motion.div
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:block js-only"
