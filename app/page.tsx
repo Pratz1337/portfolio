@@ -5,7 +5,6 @@ import Projects from "@/components/projects"
 import Education from "@/components/education"
 import Research from "@/components/research"
 import Achievements from "@/components/achievements"
-import Skills from "@/components/skills"
 import Contact from "@/components/contact"
 import type { Metadata } from "next"
 
@@ -25,7 +24,6 @@ export default function Home() {
       <Projects />
       <Research />
       <Achievements />
-      <Skills />
       <Contact />
     </div>
   )
