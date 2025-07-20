@@ -146,7 +146,7 @@ export default function Hero() {
                   animate={{ y: [-5, 5, -5] }}
                   transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
                 >
-                  CGPA: 9.72
+                 CS Enthusiast
         </motion.div>
 
                 <motion.div
