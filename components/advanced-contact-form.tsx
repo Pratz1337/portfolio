@@ -323,13 +323,13 @@ export default function AdvancedContactForm() {
           <div className="space-y-4 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Get In Touch</h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Have a project in mind or want to discuss opportunities? I'd love to hear from you!
+              Have a project in mind or want to discuss opportunities? I&apos;d love to hear from you!
             </p>
             <div className="mx-auto max-w-[700px]">
               <div className="rounded-xl bg-gradient-to-r from-purple-500/10 to-fuchsia-400/10 p-4 border border-purple-300/20 mb-2">
                 <span className="block text-lg font-semibold text-purple-700 dark:text-purple-300 mb-1">Hire Me!</span>
                 <span className="text-sm text-muted-foreground">
-                  Need a modern Next.js or full stack website? I'm available for freelance work. Contact me for pricing,
+                  Need a modern Next.js or full stack website? I&apos;m available for freelance work. Contact me for pricing,
                   timelines, and to discuss your project needs!
                 </span>
               </div>
@@ -354,7 +354,7 @@ export default function AdvancedContactForm() {
                     >
                       <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400" />
                       <span className="text-green-800 dark:text-green-200">
-                        Message sent successfully! I'll get back to you soon.
+                        Message sent successfully! I&apos;ll get back to you soon.
                       </span>
                     </motion.div>
                   )}

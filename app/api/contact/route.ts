@@ -139,9 +139,9 @@ export async function POST(request: NextRequest) {
 
       await logSuspiciousActivity({
         ip,
-        fingerprint,
+        fingerprint: fingerprint ?? undefined,
         userAgent,
-        reason: `Rate limit exceeded: ${rateLimitResult.reason}`,
+        reason: `Rate limit exceeded: ${'reason' in rateLimitResult ? rateLimitResult.reason : 'Unknown'}`,
         formData,
         metadata: {
           suspiciousScore,
@@ -172,7 +172,7 @@ export async function POST(request: NextRequest) {
 
       await logSuspiciousActivity({
         ip,
-        fingerprint,
+        fingerprint: fingerprint ?? undefined,
         userAgent,
         reason: `Blocked for highly suspicious activity (score: ${suspiciousScore})`,
         formData,
@@ -193,7 +193,7 @@ export async function POST(request: NextRequest) {
 
       await logSuspiciousActivity({
         ip,
-        fingerprint,
+        fingerprint: fingerprint ?? undefined,
         userAgent,
         reason: `Suspicious activity detected (score: ${suspiciousScore}) - CAPTCHA required`,
         formData,
@@ -218,7 +218,7 @@ export async function POST(request: NextRequest) {
     // Log all submissions for monitoring
     await logSuspiciousActivity({
       ip,
-      fingerprint,
+      fingerprint: fingerprint ?? undefined,
       userAgent,
       reason: isSuspicious ? `Suspicious but allowed (score: ${suspiciousScore})` : "Normal submission",
       formData,

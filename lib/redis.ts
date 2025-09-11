@@ -68,7 +68,7 @@ export async function checkIPRateLimit(ip: string) {
   )
 
   if (!minuteCheck.allowed) {
-    return { allowed: false, reason: "Too many requests per minute", ...minuteCheck }
+    return { ...minuteCheck, reason: "Too many requests per minute" }
   }
 
   const hourCheck = await checkRateLimit(
@@ -79,8 +79,8 @@ export async function checkIPRateLimit(ip: string) {
   )
 
   return hourCheck.allowed
-    ? { allowed: true, ...hourCheck }
-    : { allowed: false, reason: "Too many requests per hour", ...hourCheck }
+    ? { ...hourCheck }
+    : { ...hourCheck, reason: "Too many requests per hour" }
 }
 
 // Form submission rate limiting
@@ -95,7 +95,7 @@ export async function checkFormSubmissionLimit(identifier: string, isSuspicious 
   )
 
   if (!hourCheck.allowed) {
-    return { allowed: false, reason: "Too many form submissions per hour", ...hourCheck }
+    return { ...hourCheck, reason: "Too many form submissions per hour" }
   }
 
   const dailyLimit = isSuspicious ? RATE_LIMITS.SUSPICIOUS_ATTEMPTS_PER_DAY : RATE_LIMITS.FORM_SUBMISSIONS_PER_DAY
@@ -108,8 +108,8 @@ export async function checkFormSubmissionLimit(identifier: string, isSuspicious 
   )
 
   return dayCheck.allowed
-    ? { allowed: true, ...dayCheck }
-    : { allowed: false, reason: "Too many form submissions per day", ...dayCheck }
+    ? { ...dayCheck }
+    : { ...dayCheck, reason: "Too many form submissions per day" }
 }
 
 // Block management

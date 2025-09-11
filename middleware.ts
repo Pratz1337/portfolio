@@ -51,13 +51,13 @@ export async function middleware(request: NextRequest) {
       const rateLimitResult = await checkIPRateLimit(ip)
 
       if (!rateLimitResult.allowed) {
-        console.log(`[v0] Rate limit exceeded for ${ip}: ${rateLimitResult.reason}`)
+        console.log(`[v0] Rate limit exceeded for ${ip}: ${'reason' in rateLimitResult ? rateLimitResult.reason : 'Rate limit exceeded'}`)
 
         // Log as suspicious activity
         await logSuspiciousActivity({
           ip,
           userAgent,
-          reason: `Rate limit exceeded: ${rateLimitResult.reason}`,
+          reason: `Rate limit exceeded: ${'reason' in rateLimitResult ? rateLimitResult.reason : 'Rate limit exceeded'}`,
           metadata: {
             path: pathname,
             method: request.method,
