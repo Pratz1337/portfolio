@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { redis } from "@/lib/redis"
-
+export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     // Get all suspicious activity
