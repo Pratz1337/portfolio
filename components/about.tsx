@@ -44,8 +44,10 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-20 bg-muted/30 w-full">
-      <div className="container px-4 md:px-6">
+    <section id="about" className="py-20 relative overflow-hidden w-full">
+      <div className="absolute inset-0 glass-subtle" />
+
+      <div className="container px-4 md:px-6 relative z-10">
         <motion.div
           className="space-y-12"
           initial={{ opacity: 0 }}
@@ -54,11 +56,10 @@ export default function About() {
           transition={{ duration: 0.8 }}
         >
           <div className="space-y-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About Me</h2>
-            
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl gradient-text">About Me</h2>
           </div>
 
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl text-center glass-strong rounded-3xl p-8 corner-glow shadow-2xl shadow-primary/10">
             <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
               Currently pursuing my B.E. in Computer Science Engineering with a specialization in Cybersecurity at
               Ramaiah Institute of Technology. I&apos;m passionate about exploring the intersection of artificial
@@ -76,16 +77,16 @@ export default function About() {
           >
             {features.map((feature, index) => (
               <motion.div key={index} variants={item} className="animate-in">
-                <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary/50">
+                <Card className="h-full floating-glass rounded-3xl border-white/20 dark:border-white/10">
                   <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
                     <motion.div
-                      className="p-2 rounded-full bg-primary/10"
+                      className="p-4 rounded-2xl glass-strong corner-glow"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     >
                       {feature.icon}
                     </motion.div>
-                    <h3 className="text-xl font-bold">{feature.title}</h3>
+                    <h3 className="text-xl font-bold gradient-text">{feature.title}</h3>
                     <p className="text-muted-foreground">{feature.description}</p>
                   </CardContent>
                 </Card>

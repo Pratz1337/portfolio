@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 const achievements = [
-   {
+  {
     title: "Winner, CIDECODE PES'25",
     project: "Fence.AI",
     description:
@@ -17,7 +17,7 @@ const achievements = [
   },
   {
     title: "Winner, HPE Think-a-Thon 2025",
-    
+
     description:
       "Solved Data Structures and Algorithms challenges for HPE's Think-a-Thon, winning first place with a project that enhances data security and efficiency.",
     category: "National Competition",
@@ -28,7 +28,8 @@ const achievements = [
     description:
       "Developed an AI-powered medical diagnostic tool that won first place, demonstrating innovation in healthcare technology.",
     category: "Hackathon",
-  },{
+  },
+  {
     title: "Winner, AIT Hack 2024",
     project: "Guard.AI",
     description:
@@ -46,21 +47,28 @@ const achievements = [
 
 const Achievements = () => {
   return (
-    <section id="achievements" className="py-12">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-semibold text-center mb-8">Achievements</h2>
+    <section id="achievements" className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 glass-subtle" />
+
+      <div className="container mx-auto relative z-10">
+        <h2 className="text-3xl font-bold text-center mb-8 gradient-text">Achievements</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {achievements.map((achievement, index) => (
             <Card
               key={index}
-              className="h-full transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/10 hover:-translate-y-2 border-2 border-yellow-500/30 bg-gradient-to-br from-yellow-50/80 to-orange-50/80 dark:from-yellow-950/20 dark:to-orange-950/20 backdrop-blur-sm"
+              className="h-full floating-glass rounded-3xl border-yellow-500/30 corner-glow"
+              style={{
+                background: "linear-gradient(135deg, rgba(255, 251, 235, 0.1) 0%, rgba(255, 237, 213, 0.1) 100%)",
+              }}
             >
               <CardHeader>
-                <CardTitle>{achievement.title}</CardTitle>
-                <CardDescription>{achievement.category}</CardDescription>
+                <CardTitle className="gradient-text">{achievement.title}</CardTitle>
+                <CardDescription className="glass rounded-xl px-3 py-1 inline-block w-fit">
+                  {achievement.category}
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{achievement.description}</p>
+                <p className="text-sm text-muted-foreground">{achievement.description}</p>
               </CardContent>
             </Card>
           ))}

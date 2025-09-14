@@ -8,6 +8,16 @@ import { motion } from "framer-motion"
 export default function Experience() {
   const experiences = [
     {
+      title: "Intern Trainee",
+      company: "ISRO-Leos Bangalore",
+      period: "August’25 – September’25",
+      location: "Bangalore, India",
+      achievements: [
+        "Computed an AI pipeline to process and interpret satellite imagery, achieving 98.3% object recognition accuracy and reducing false positives by 31%, directly enabling sub-meter precision in autonomous navigation control systems.",
+        "Designed and prototyped novel ML algorithms for spacecraft simulation environments, sustaining >99.9% reliability across 1,000+ zero-failure test runs and ensuring latency under 200ms for real-time autonomous maneuvering.",
+      ],
+    },
+    {
       title: "Project Intern",
       company: "Hewlett Packard Enterprise (HPE)",
       period: "April 2025 - Present",
@@ -19,24 +29,13 @@ export default function Experience() {
       ],
     },
     {
-      title: "EXECOM",
-      company: "IEEE RIT-B",
-      period: "January 2025 - Present",
-      location: "Bangalore, India",
-      achievements: [
-        "Organizing technical workshops and events for students",
-        "Collaborating with other IEEE members to promote technical knowledge sharing",
-        "Contributing to the growth of the IEEE student chapter at RIT",
-      ],
-    },
-    {
       title: "Core Member",
       company: "Google Developer Group (GDG) – RIT Chapter",
       period: "December 2024 - Present",
       location: "Bangalore, India",
       achievements: [
-        "Participating in Google technology-focused events and workshops",
-        "Collaborating with other GDG members to organize tech talks and coding sessions",
+        "Lead Student Co-ordinator Organising Smart India Hackathon'25",
+        "Collaborating with other GDG members to organize Capture the Flag and Other Flagship Events",
         "Contributing to the developer community at RIT",
       ],
     },

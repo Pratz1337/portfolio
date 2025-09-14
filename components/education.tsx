@@ -57,7 +57,7 @@ export default function Education() {
                 <div className="p-6">
                   <div className="mb-4">
                     <p className="font-semibold">
-                      CGPA: <span className="text-primary">9.72/10.00</span> (Till 4th Semester)
+                      CGPA: <span className="text-primary">9.57/10.00</span> (Till 4th Semester)
                     </p>
                   </div>
                   <div>
