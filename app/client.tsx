@@ -2,10 +2,9 @@
 
 import type React from "react"
 import { Inter as FontSans } from "next/font/google"
-import "./globals.css"
+import "./profile.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
-import Header from "@/components/header"
 import Footer from "@/components/footer"
 import NoScriptStyles from "@/components/noscript-styles"
 
@@ -23,18 +22,9 @@ export default function ClientLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <NoScriptStyles />
-        <style jsx global>{`
-          :root {
-            --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-          }
-          
-          body {
-            font-family: var(--font-mono);
-          }
-        `}</style>
       </head>
-      <body className={cn("min-h-screen bg-background font-mono antialiased", fontSans.variable)}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
+      <body className={cn("min-h-screen antialiased", fontSans.variable)}>
+        <ThemeProvider attribute="class" forcedTheme="dark" enableSystem={false} disableTransitionOnChange>
           <div className="relative flex min-h-screen flex-col overflow-hidden">
             <noscript>
               <div className="bg-yellow-100 dark:bg-yellow-900 p-4 text-center text-sm">
@@ -42,7 +32,6 @@ export default function ClientLayout({
               </div>
             </noscript>
             
-            <Header />
             <main className="flex-1 relative z-10">{children}</main>
             <Footer />
           </div>
