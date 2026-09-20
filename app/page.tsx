@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 const projects = [
   ["CortexMD", "Explainable multimodal clinical AI with 3D anatomical reconstruction, knowledge graphs, and confidence-based verification.", "NVIDIA Clara · Explainable AI · Computer Vision", "https://github.com/pratz1337"],
+  ["KAI", "A Windows AI agent that uses Claude Vision to understand screens and execute keyboard-only automation, with optional kernel-driver support.", "Python · Claude Vision · Windows", "https://github.com/Pratz1337/KAI"],
   ["Heritedge", "Tourism and cultural preservation with an MCP-RAG chatbot, gamified AR experiences, and secure IPFS-based content storage.", "Python · LangChain · Next.js · IPFS", "https://github.com/pratz1337"],
   ["Fence.AI", "Deepfake protection and detection using adversarial perturbations and LIME-based explanations.", "Python · LIME · Adversarial ML", "https://github.com/Pratz1337/deep-defend"],
-  ["HRT-LI", "Certified rank transport for dynamic learned indexes over hierarchical string keys.", "Learned indexes · Data structures · C++", "https://github.com/Pratz1337/RankTransport-Index"],
   ["Symptom Sage", "A medical imaging application for pneumonia detection, reports, and doctor–patient workflows.", "TensorFlow · Flask · GCloud", "https://github.com/Pratz1337/Symptom_Sage"],
 ]
 
