@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import PortfolioSections from "./portfolio-sections"
 
 export const metadata: Metadata = {
-  title: "Prathmesh Sayal",
-  description: "Prathmesh Sayal — computer science, AI, systems, and security.",
+  title: "Computer Science, AI, Systems, and Security",
+  description: "Selected projects, research, experience, achievements, and writing by Prathmesh Sayal.",
 }
 
 const projects = [
@@ -32,5 +32,34 @@ const research = [
 const recognition = ["CIDECODE PES 2025 · Winner", "Smart India Hackathon 2024 · Runner-up", "HPE Think-a-Thon 2025 · Winner", "10× hackathon winner · 6× CTF winner"]
 
 export default function Home() {
-  return <PortfolioSections projects={projects} career={career} research={research} recognition={recognition} />
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        name: "Prathmesh Sayal",
+        url: "https://portfolio-pratz.vercel.app",
+        jobTitle: "Computer Science Engineer",
+        alumniOf: "Ramaiah Institute of Technology",
+        sameAs: ["https://github.com/Pratz1337", "https://www.linkedin.com/in/prathmesh-sayal"],
+      },
+      {
+        "@type": "WebSite",
+        name: "Prathmesh Sayal",
+        url: "https://portfolio-pratz.vercel.app",
+        description: "Selected projects, research, experience, achievements, and writing by Prathmesh Sayal.",
+      },
+      {
+        "@type": "Article",
+        headline: "Impressive, but Still Reactive: Why Current AI Isn’t Close to AGI Yet",
+        author: { "@type": "Person", name: "Prathmesh Sayal" },
+        url: "https://medium.com/@sayalprathmesh8/impressive-but-still-reactive-why-current-ai-isnt-close-to-agi-yet-430c778e9a77",
+      },
+    ],
+  }
+
+  return <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+    <PortfolioSections projects={projects} career={career} research={research} recognition={recognition} />
+  </>
 }

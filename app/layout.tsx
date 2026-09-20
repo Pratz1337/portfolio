@@ -3,15 +3,22 @@ import type { Metadata } from "next"
 import ClientLayout from "./client"
 
 export const metadata: Metadata = {
-  title: "Prathmesh Sayal | Computer Science Student & Developer",
+  metadataBase: new URL("https://portfolio-pratz.vercel.app"),
+  title: {
+    default: "Prathmesh Sayal",
+    template: "%s | Prathmesh Sayal",
+  },
   description:
-    "Portfolio of Prathmesh Sayal, a Computer Science Engineering student specializing in Cybersecurity, with expertise in Python, JavaScript, and AI/ML technologies.",
+    "Prathmesh Sayal is a computer science engineer working across trustworthy AI, computer vision, systems, and cybersecurity.",
   keywords: [
     "Prathmesh Sayal",
     "Computer Science",
     "Cybersecurity",
-    "Full Stack Developer",
-    "AI/ML",
+    "Artificial Intelligence",
+    "Computer Vision",
+    "Trustworthy AI",
+    "AI Security",
+    "Systems Programming",
     "Python",
     "JavaScript",
     "React",
@@ -21,19 +28,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://prathmeshsayal.com",
-    title: "Prathmesh Sayal | Computer Science Student & Developer",
+    url: "https://portfolio-pratz.vercel.app",
+    title: "Prathmesh Sayal",
     description:
-      "Portfolio of Prathmesh Sayal, a Computer Science Engineering student specializing in Cybersecurity, with expertise in Python, JavaScript, and AI/ML technologies.",
+      "Computer science, trustworthy AI, computer vision, systems, and cybersecurity work by Prathmesh Sayal.",
     siteName: "Prathmesh Sayal Portfolio",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Prathmesh Sayal | Computer Science Student & Developer",
+    card: "summary",
+    title: "Prathmesh Sayal",
     description:
-      "Portfolio of Prathmesh Sayal, a Computer Science Engineering student specializing in Cybersecurity, with expertise in Python, JavaScript, and AI/ML technologies.",
-    creator: "@prathmeshsayal",
+      "Computer science, trustworthy AI, computer vision, systems, and cybersecurity work by Prathmesh Sayal.",
   },
+  alternates: { canonical: "https://portfolio-pratz.vercel.app" },
+  category: "technology",
   robots: {
     index: true,
     follow: true,
