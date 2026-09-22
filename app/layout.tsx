@@ -12,18 +12,23 @@ export const metadata: Metadata = {
     "Prathmesh Sayal is a computer science engineer working across trustworthy AI, computer vision, systems, and cybersecurity.",
   keywords: [
     "Prathmesh Sayal",
-    "Computer Science and Engineering",
+    "Computer Science",
     "Cybersecurity",
-    "Trustworthy AI",
+    "Artificial Intelligence",
     "Computer Vision",
-    "Learned Indexes",
+    "Trustworthy AI",
+    "AI Security",
+    "Systems Programming",
+    "Python",
+    "JavaScript",
+    "React",
   ],
   authors: [{ name: "Prathmesh Sayal" }],
   creator: "Prathmesh Sayal",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://portfolio-pratz.vercel.app/",
+    url: "https://portfolio-pratz.vercel.app",
     title: "Prathmesh Sayal",
     description:
       "Computer science, trustworthy AI, computer vision, systems, and cybersecurity work by Prathmesh Sayal.",
@@ -35,6 +40,7 @@ export const metadata: Metadata = {
     description:
       "Computer science, trustworthy AI, computer vision, systems, and cybersecurity work by Prathmesh Sayal.",
   },
+  alternates: { canonical: "https://portfolio-pratz.vercel.app" },
   category: "technology",
   robots: {
     index: true,

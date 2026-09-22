@@ -1,3 +1,14 @@
 export default function Footer() {
-  return <footer>© {new Date().getFullYear()} Prathmesh Sayal</footer>
-}
+    const currentYear = new Date().getFullYear()
+  
+    return (
+      <footer className="border-t py-6 md:py-8">
+        <div className="container flex flex-col items-center justify-center gap-4 text-center md:gap-6">
+          <div className="space-y-2">
+            <p className="text-sm text-muted-foreground">&copy; {currentYear} Prathmesh Sayal. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    )
+  }
+  

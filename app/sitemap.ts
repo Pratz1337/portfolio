@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next"
-import { sections, siteUrl } from "./portfolio-data"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return sections.map((section) => ({
-    url: section === "about" ? siteUrl : `${siteUrl}/${section}`,
+  return [{
+    url: "https://portfolio-pratz.vercel.app/",
+    lastModified: new Date(),
     changeFrequency: "monthly",
-    priority: section === "about" ? 1 : 0.7,
-  }))
+    priority: 1,
+  }]
 }
