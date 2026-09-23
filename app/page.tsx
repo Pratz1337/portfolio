@@ -29,7 +29,17 @@ const research = [
   ["Generative AI Framework for Expediting the Search for New Therapeutics Using Generative Adversarial Networks", "Journal of Communications Software and Systems · 2026", "/generative-ai-therapeutics.pdf"],
 ]
 
-const recognition = ["CIDECODE PES 2025 · Winner", "Smart India Hackathon 2024 · Runner-up", "HPE Think-a-Thon 2025 · Winner", "10× hackathon winner · 6× CTF winner"]
+const recognition = [
+  ["CIDECODE PES 2025", "Winner"],
+  ["HPE Think-a-Thon 2025", "Winner"],
+  ["Smart India Hackathon 2024", "Runner-up"],
+  ["BIT Hack 2024", "Winner"],
+  ["JIT Hackathon 2024", "Winner"],
+  ["AIT Hackathon 2024", "Winner"],
+  ["NIT Pragyan CTF International", "2nd place"],
+  ["Cryo Vault National CTF", "Winner"],
+  ["picoCTF 2024", "Top 70"],
+]
 
 export default function Home() {
   const structuredData = {

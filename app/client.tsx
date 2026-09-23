@@ -5,7 +5,6 @@ import { Inter as FontSans } from "next/font/google"
 import "./profile.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
-import Footer from "@/components/footer"
 import NoScriptStyles from "@/components/noscript-styles"
 
 const fontSans = FontSans({
@@ -33,7 +32,6 @@ export default function ClientLayout({
             </noscript>
             
             <main className="flex-1 relative z-10">{children}</main>
-            <Footer />
           </div>
         </ThemeProvider>
       </body>
