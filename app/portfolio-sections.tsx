@@ -31,7 +31,7 @@ export default function PortfolioSections({ projects, career, research, recognit
     </section>
 
     <nav className="section-nav" aria-label="Portfolio sections">
-      {sections.map((section) => <a className={active === section ? "active" : ""} href={`#${section}`} key={section}>{section === "achievements" ? "Achievements" : section[0].toUpperCase() + section.slice(1)}</a>)}
+      {sections.map((section) => <a className={active === section ? "active" : ""} href={`#${section}`} aria-current={active === section ? "location" : undefined} key={section}>{section === "achievements" ? "Achievements" : section[0].toUpperCase() + section.slice(1)}</a>)}
     </nav>
 
     <main className="profile-content">
